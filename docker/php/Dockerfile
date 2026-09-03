@@ -60,7 +60,8 @@ RUN docker-php-ext-install -j$(nproc) \
 # Redis
 ###############################################################################
 
-RUN pecl install redis \
+RUN pecl channel-update pecl.php.net \
+    && pecl install redis \
     && docker-php-ext-enable redis
 
 ###############################################################################
